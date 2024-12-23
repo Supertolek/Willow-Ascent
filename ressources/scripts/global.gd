@@ -1,12 +1,9 @@
 extends Node
 
 var username: String = "Player"
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var is_multiplayer: bool = false
+var multiplayer_server: bool = false
+var multiplayer_ip_adress: String
+var multiplayer_port: int
+var player_list: Dictionary
+# {id: {username}}
