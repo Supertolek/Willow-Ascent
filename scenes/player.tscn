@@ -89,9 +89,11 @@ metadata/checkpoint_id = ""
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -32)
 sprite_frames = SubResource("SpriteFrames_ov4h3")
-animation = &"idle"
+animation = &"walking"
+frame_progress = 0.364354
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1.5, -27.5)
 shape = SubResource("RectangleShape2D_k4t82")
 debug_color = Color(0.670588, 0.796078, 0.619608, 0.372549)

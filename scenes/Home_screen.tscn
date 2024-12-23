@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://ddnfaxg3i1pkg"]
+[gd_scene load_steps=38 format=4 uid="uid://cjae8pymxxund"]
 
 [ext_resource type="Theme" uid="uid://cb0kyefonkyem" path="res://ressources/themes/willow_ascent_theme.tres" id="1_dj8s5"]
 [ext_resource type="Script" path="res://ressources/scripts/home_screen.gd" id="2_akom2"]
@@ -95,7 +95,7 @@ polygon = PackedVector2Array(8, -16, -16, -16, -16, 16, 16, 16, 16, -8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ctxbp"]
 polygon = PackedVector2Array(8, -8, -16, -8, -16, 16, 8, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qyqkp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ippu"]
 texture = ExtResource("3_f6exn")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -477,25 +477,11 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "floor"
 terrain_set_0/terrain_1/color = Color(0.46875, 0.5, 0.25, 1)
-sources/3 = SubResource("TileSetAtlasSource_qyqkp")
+sources/3 = SubResource("TileSetAtlasSource_6ippu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qqimp"]
 shader = ExtResource("4_ta22a")
 shader_parameter/lod = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q06f4"]
-content_margin_left = 48.0
-content_margin_top = 48.0
-content_margin_right = 48.0
-content_margin_bottom = 48.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="InputEventKey" id="InputEventKey_yhd1r"]
-device = -1
-keycode = 4194305
-
-[sub_resource type="Shortcut" id="Shortcut_dh1cy"]
-events = [SubResource("InputEventKey_yhd1r")]
 
 [node name="HomeScreen" type="Control"]
 layout_mode = 3
@@ -557,7 +543,6 @@ text = "SinglePlayer"
 [node name="MultiPlayerButton" type="Button" parent="HomeScreenMenu/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 4
-disabled = true
 text = "MultiPlayer"
 
 [node name="SettingsButton" type="Button" parent="HomeScreenMenu/Buttons"]
@@ -570,51 +555,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Quit"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_q06f4")
-
-[node name="SettingsMenu" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="Title" type="Label" parent="PanelContainer/SettingsMenu"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Settings"
-
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/SettingsMenu"]
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/SettingsMenu"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="PanelContainer/SettingsMenu/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-shortcut = SubResource("Shortcut_dh1cy")
-text = "Back"
-
-[node name="UsernameControls" type="HBoxContainer" parent="PanelContainer/SettingsMenu/GridContainer"]
-layout_mode = 2
-
-[node name="Description" type="Label" parent="PanelContainer/SettingsMenu/GridContainer/UsernameControls"]
-layout_mode = 2
-text = "Username: "
-
-[node name="Input" type="LineEdit" parent="PanelContainer/SettingsMenu/GridContainer/UsernameControls"]
-layout_mode = 2
-expand_to_text_length = true
-
 [connection signal="pressed" from="HomeScreenMenu/Buttons/SinglePlayerButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="HomeScreenMenu/Buttons/MultiPlayerButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HomeScreenMenu/Buttons/MultiPlayerButton" to="." method="_on_multiplayer_button_pressed"]
 [connection signal="pressed" from="HomeScreenMenu/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="HomeScreenMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="PanelContainer/SettingsMenu/GridContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="text_changed" from="PanelContainer/SettingsMenu/GridContainer/UsernameControls/Input" to="." method="_on_username_input_text_changed"]

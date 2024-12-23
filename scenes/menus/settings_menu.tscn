@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnfotrjyu6c5h"]
+
+[ext_resource type="Theme" uid="uid://cb0kyefonkyem" path="res://ressources/themes/willow_ascent_theme.tres" id="1_pm18j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jluy"]
+content_margin_left = 48.0
+content_margin_top = 48.0
+content_margin_right = 48.0
+content_margin_bottom = 48.0
+bg_color = Color(0.196078, 0.286275, 0.243137, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_yhd1r"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_dh1cy"]
+events = [SubResource("InputEventKey_yhd1r")]
+
+[node name="SettingsMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pm18j")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jluy")
+
+[node name="SettingsPage" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Head" type="HBoxContainer" parent="SettingsPage"]
+layout_mode = 2
+
+[node name="SettingsMenuTitle" type="Label" parent="SettingsPage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Settings"
+
+[node name="HSeparator" type="HSeparator" parent="SettingsPage"]
+layout_mode = 2
+
+[node name="SettingsGrid" type="GridContainer" parent="SettingsPage"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SettingsPage/SettingsGrid"]
+layout_mode = 2
+size_flags_horizontal = 0
+shortcut = SubResource("Shortcut_dh1cy")
+text = "Back"
+
+[node name="UsernameControls" type="HBoxContainer" parent="SettingsPage/SettingsGrid"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="SettingsPage/SettingsGrid/UsernameControls"]
+layout_mode = 2
+text = "Username: "
+
+[node name="Input" type="LineEdit" parent="SettingsPage/SettingsGrid/UsernameControls"]
+layout_mode = 2
+expand_to_text_length = true
